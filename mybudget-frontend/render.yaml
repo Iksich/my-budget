@@ -1,0 +1,13 @@
+
+yaml
+Копирај кȏд
+services:
+  - type: web
+    name: my-budget-frontend
+    env: static
+    plan: free
+    buildCommand: "ng build --prod"
+    outputDirectory: "dist/mybudget-frontend"
+    envVars:
+      - key: API_BASE_URL
+        value: https://my-budget-ds3f.onrender.com
