@@ -1,12 +1,24 @@
 services:
   - type: web
-    name: my-budget-app
+    name: my-budget-backend
     env: docker
-    buildCommand: "docker build -t my-budget-app ."
-    startCommand: "docker run -p 8080:8080 my-budget-app"
     plan: free
+    dockerfile: Dockerfile
+    buildCommand: ""
+    startCommand: "java -jar my-budget.jar"
     envVars:
-      - key: DATABASE_URL
-        value: jdbc:h2:mem:mybudgetdb
       - key: SPRING_PROFILES_ACTIVE
-        value: dev
+        value: prod
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:h2:mem:mybudgetdb
+      - key: SPRING_DATASOURCE_USERNAME
+        value: root
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: DdJG8gQ$2j?%d2B
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: create
+      - key: SPRING_JPA_SHOW_SQL
+        value: true
+      - key: SPRING_JPA_DATABASE_PLATFORM
+        value: org.hibernate.dialect.H2Dialect
+    port: 8080
