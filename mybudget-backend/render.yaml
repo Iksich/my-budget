@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: my-budget-app
+    env: docker
+    buildCommand: "docker build -t my-budget-app ."
+    startCommand: "docker run -p 8080:8080 my-budget-app"
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: jdbc:h2:mem:mybudgetdb
+      - key: SPRING_PROFILES_ACTIVE
+        value: dev
