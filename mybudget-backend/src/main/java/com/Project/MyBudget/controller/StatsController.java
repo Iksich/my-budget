@@ -1,6 +1,5 @@
 package com.Project.MyBudget.controller;
 
-
 import com.Project.MyBudget.dto.GraphDTO;
 import com.Project.MyBudget.services.stats.StatsService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,7 @@ public class StatsController {
     private final StatsService statsService;
 
     @GetMapping("/chart")
-    public ResponseEntity<GraphDTO> getChartDetails(){
+    public ResponseEntity<GraphDTO> getChartDetails() {
         return ResponseEntity.ok(statsService.getCharData());
     }
 
