@@ -1,34 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+
+const BASIC_URL = "http://localhost:8080/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncomeService {
 
-  private baseUrl = `${environment.apiUrl}api/income`;
-
   constructor(private http: HttpClient) { }
 
-  postIncome(incomeDTO: any): Observable<any> {
-    return this.http.post(this.baseUrl, incomeDTO);
+  postIncome(incomeDTO:any): Observable<any>{
+    return this.http.post(BASIC_URL + "api/income", incomeDTO);
   }
 
-  getAllIncomes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/all`);
+  getAllIncomes(): Observable<any>{
+    return this.http.get(BASIC_URL + "api/income/all");
   }
 
-  getIncomeById(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getIncomeById(id:number): Observable<any>{
+    return this.http.get(BASIC_URL + `api/income/${id}`);
   }
 
-  updateIncome(id: number, incomeDTO: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${id}`, incomeDTO);
+  updateIncome(id:number, incomeDTO:any): Observable<any>{
+    return this.http.put(BASIC_URL + `api/income/${id}`, incomeDTO);
   }
 
-  deleteIncome(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteIncome(id:number): Observable<any>{
+    return this.http.delete(BASIC_URL + `api/income/${id}`);
   }
 }
