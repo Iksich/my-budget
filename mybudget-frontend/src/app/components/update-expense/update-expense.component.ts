@@ -61,10 +61,10 @@ export class UpdateExpenseComponent implements OnInit {
 
   submitForm(){
     this.expenseService.updateExpense(this.id, this.expenseForm.value).subscribe(res=>{
-      this.message.success("Expense updated successfully", {  nzDuration: 5000})
+      this.message.success("Expense updated successfully", {  nzDuration: 5000});
       this.router.navigateByUrl("/expense")
     }, error=>{
-      this.message.error("Error while updating expense", {  nzDuration: 5000})
+      this.message.error("Error while updating expense", {  nzDuration: 5000});
     })
   }
 
