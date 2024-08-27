@@ -1,0 +1,126 @@
+.dashboard-container {
+    margin: 20px;
+  }
+  
+  .nz-row {
+    margin-bottom: 20px;
+  }
+  
+  .nz-col {
+    padding: 10px;
+  }
+  
+  nz-card {
+    margin-bottom: 20px;
+  }
+  
+  .grid-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grid-stat h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .grid-stat span {
+    font-size: 24px;
+  }
+  
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .chart-container nz-card {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .chart-container .chart-card {
+    margin-bottom: 0;
+  }
+  
+  .recent-history {
+    margin-bottom: 20px;
+  }
+  
+  .recent-history nz-card {
+    margin-bottom: 0;
+  }
+  
+  .canvas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .canvas-container canvas {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .income-expense-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .income-expense-card .card-label {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .income-expense-card .card-value {
+    flex: 1;
+    text-align: right;
+  }
+  
+  @media (max-width: 768px) {
+    .income-expense-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .income-expense-card .card-value {
+      text-align: left;
+      margin-top: 10px;
+    }
+  
+    .grid-stat {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .chart-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .chart-container nz-card {
+      flex: 1;
+      min-width: 100%;
+    }
+  
+    .canvas-container canvas {
+      max-width: 100%;
+    }
+  
+    .recent-history {
+      margin-top: 20px;
+    }
+  }
+  
+  

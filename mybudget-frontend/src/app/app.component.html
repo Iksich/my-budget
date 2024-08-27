@@ -1,13 +1,17 @@
 <nz-layout class="layout">
-  <nz-sider>
+  <nz-header>
+    <button class="burger-menu" (click)="toggleSidebar()" aria-label="Toggle Sidebar">☰</button>
+  </nz-header>
+
+  <nz-sider [class.open]="isSidebarOpen">
     <div class="logo">
       <img src="http://static.vecteezy.com/system/resources/previews/009/749/751/original/avatar-man-icon-cartoon-male-profile-mascot-illustration-head-face-business-user-logo-free-vector.jpg" 
-            alt="Avatar" class="avatar">
+           alt="Avatar" class="avatar">
       <div class="user-info">
         <strong>Root</strong>
       </div>
     </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline">
+    <ul nz-menu nzTheme="dark" nzMode="inline" (click)="closeSidebar()">
       <li nz-menu-item routerLink="/">
         <span nz-icon nzType="dashboard"></span>
         <span>Dashboard</span>
@@ -31,4 +35,5 @@
     </nz-content>
   </nz-layout>
 
+  <div class="overlay" [class.active]="isSidebarOpen" (click)="closeSidebar()"></div>
 </nz-layout>

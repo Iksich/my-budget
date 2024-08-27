@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { StatsService } from '../../services/stats/stats.service';
 import Chart from 'chart.js/auto';
 import { CategoryScale } from 'chart.js';
@@ -10,7 +10,7 @@ Chart.register(CategoryScale);
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
 
   stats: any;
   expenses: any;
@@ -31,6 +31,17 @@ export class DashboardComponent implements OnInit {
     this.getChartData();
   }
 
+  ngAfterViewInit(): void {
+    this.createCharts();
+  }
+
+  createCharts() {
+    if (this.incomes && this.expenses) {
+      this.createIncomeLineChart();
+      this.createExpenseLineChart();
+    }
+  }
+
   createIncomeLineChart() {
     const incomeCtx = this.incomeLineChartRef.nativeElement.getContext('2d');
     if (incomeCtx) {
@@ -41,15 +52,34 @@ export class DashboardComponent implements OnInit {
           datasets: [{
             label: 'Income',
             data: this.incomes.map((income: { amount: any; }) => income.amount),
-            borderWidth: 1,
-            backgroundColor: 'rgb(80, 200, 120)',
+            borderWidth: 2,
+            backgroundColor: 'rgba(80, 200, 120, 0.2)',
             borderColor: 'rgb(0, 100, 0)',
+            fill: true,
           }]
         },
         options: {
+          responsive: true,
           scales: {
+            x: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              title: {
+                display: true,
+                text: 'Date',
+              },
+            },
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Amount',
+              },
+              ticks: {
+                callback: (value) => `$${value}`,
+              },
             }
           }
         }
@@ -69,15 +99,34 @@ export class DashboardComponent implements OnInit {
           datasets: [{
             label: 'Expense',
             data: this.expenses.map((expense: { amount: any; }) => expense.amount),
-            borderWidth: 1,
-            backgroundColor: 'rgb(255, 99, 132)',
+            borderWidth: 2,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgb(255, 99, 132)',
+            fill: true,
           }]
         },
         options: {
+          responsive: true,
           scales: {
+            x: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              title: {
+                display: true,
+                text: 'Date',
+              },
+            },
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Amount',
+              },
+              ticks: {
+                callback: (value) => `$${value}`,
+              },
             }
           }
         }
@@ -106,14 +155,11 @@ export class DashboardComponent implements OnInit {
         this.expenses = res.expenseList;
         console.log(res);
 
-        // Ensure these are called after the view is initialized
-        setTimeout(() => {
-          this.createIncomeLineChart();
-          this.createExpenseLineChart();
-        });
+        this.createCharts();
       }
     });
   }
 }
+
 
 
