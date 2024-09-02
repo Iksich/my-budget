@@ -80,14 +80,16 @@ POST /api/income - Create a new income entry.
 GET /api/income/{id} - Retrieve an income entry by ID.
 PUT /api/income/{id} - Update an income entry by ID.
 DELETE /api/income/{id} - Delete an income entry by ID.
+
 Expense
 GET /api/expense - Retrieve all expense entries.
 POST /api/expense - Create a new expense entry.
 GET /api/expense/{id} - Retrieve an expense entry by ID.
 PUT /api/expense/{id} - Update an expense entry by ID.
 DELETE /api/expense/{id} - Delete an expense entry by ID.
+
 Configuration
-The application uses H2 as an in-memory database. Configuration settings can be modified in the src/main/resources/application.properties file.
+The application uses MySQL.
 
 Evaluation Criteria
 Functionality: All specified features are implemented and work as expected.
