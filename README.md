@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project was developed as part of an assignment to create a full-stack web application for managing personal finances. The application allows users to track income and expenses, view financial summaries, and analyze financial data. It adheres to specified requirements and best practices in software development.
+This project was developed to create a full-stack web application for managing personal finances. The application allows users to track income and expenses, view financial summaries, and analyze financial data. It adheres to specified requirements and best practices in software development.
 
 ## Assignment Requirements
 
@@ -47,8 +47,6 @@ The project is divided into two main parts:
 ### Backend
 
 1. **Clone the Repository**
-
-   ```bash
    git clone https://github.com/Iksich/my-budget.git
 Navigate to the Backend Directory
 
@@ -100,12 +98,4 @@ License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 Contact
-For any questions or feedback, please reach out to your-email@example.com.
-
-
-### Key Additions:
-- **Assignment Requirements**: Clearly state the requirements and how the project meets them.
-- **Project Structure**: Provide clarity on the organization of the project.
-- **Evaluation Criteria**: Highlight what evaluators should focus on.
-  
-This approach makes the `README.md` more aligned with the context of an assignment, providing necessary information for evaluation.
+For any questions or feedback, please reach out to ilija.pejanovicc@gmail.com
